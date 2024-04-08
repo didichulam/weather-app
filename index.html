@@ -4,32 +4,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="src/styles.css">
     <title>Document</title>
 </head>
 
 <body>
-    <header>
-        <form>
-            <input type="search" placeholder="Enter a city" required>
-            <input type="submit" value="Search">
-        </form>
-    </header>
-    <main>
-        <h1>Paris</h1>
-        ☁️13°C
-        <p>Tuesday 9:50, overcast clouds
-            </br>
-            Humidity: 91%, Wind:3.09km/h
+    <div class="wrapper">
+        <header>
+            <form class="search-form">
+                <input type="search" placeholder="Enter a city" required class="search-input-space">
+                <input type="submit" value="Search" class="search-button">
+            </form>
+        </header>
+        <main>
+            <div class="weather-information">
+                <div class="city-weather-information">
 
-        </p>
-    </main>
+                    <h1>Paris</h1>
 
-    <footer>
-        This project was codded by <a href="https://github.com/didichulam" target="_blank">Chimdinma</a>, is
-        open-sourced on <a href="https://github.com/didichulam/week7-homework-git" target="_blank">GitHub</a> and
-        hosted on <a href="https://dinmas-weather-app.netlify.app/" target="_blank">Netlify</a>
-    </footer>
+                    <p>Tuesday 9:50, overcast clouds
+                        </br>
+                        Humidity: <span class="humidity-value"><strong>91%</strong></span>, Wind: <span
+                            class="wind-speed-value"><strong>3.09km/h</strong></span>
+
+                    </p>
+                </div>
+                <div class="temperature-information">
+                    <span class="weather-icon">☁️</span><span class="temperature-value">13</span><span
+                        class="temperature-unit">°C</span>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            This project was coded by <a href="https://github.com/didichulam" target="_blank">Chimdinma</a>, is
+            open-sourced on <a href="https://github.com/didichulam/week7-homework-git" target="_blank">GitHub</a> and
+            hosted on <a href="https://dinmas-weather-app.netlify.app/" target="_blank">Netlify</a>
+        </footer>
+    </div>
     <script src="src/index.js"></script>
 </body>
 
