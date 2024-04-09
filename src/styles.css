@@ -44,12 +44,17 @@ form {
   justify-content: space-between;
 }
 
+.weather-details {
+  color: rgba(0, 0, 0, 0.6);
+}
 .humidity-value {
   color: #f65282;
+  font-weight: bolder;
 }
 
 .wind-speed-value {
   color: #f65282;
+  font-weight: bolder;
 }
 
 .temperature-information {
@@ -64,6 +69,7 @@ form {
   font-size: 88px;
   line-height: 88px;
   font-weight: bold;
+  margin-left: 10px;
 }
 
 .temperature-unit {
