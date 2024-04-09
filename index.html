@@ -16,16 +16,17 @@
 <body>
     <div class="wrapper">
         <header>
-            <form class="search-form">
-                <input type="search" placeholder="Enter a city" required class="search-input-space">
-                <input type="submit" value="Search" class="search-button">
+            <form class="search-form" id="search-form">
+                <input type="search" placeholder="Enter a city" required class="search-input-space"
+                    id="search-input-space">
+                <input type="submit" value="Search" class="search-button" id="search-button">
             </form>
         </header>
         <main>
             <div class="weather-information">
                 <div class="city-weather-information">
 
-                    <h1>Paris</h1>
+                    <h1 id="displayed-city">Paris</h1>
 
                     <p>Tuesday 9:50, overcast clouds
                         </br>
@@ -35,8 +36,9 @@
                     </p>
                 </div>
                 <div class="temperature-information">
-                    <span class="weather-icon">☁️</span><span class="temperature-value">13</span><span
-                        class="temperature-unit">°C</span>
+                    <div class="weather-icon">☁️</div>
+                    <div class="temperature-value">13</div>
+                    <div class="temperature-unit">°C</div>
                 </div>
             </div>
         </main>

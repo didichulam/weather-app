@@ -52,11 +52,14 @@ form {
   color: #f65282;
 }
 
-.weather-icon {
+.temperature-information {
   display: flex;
-  justify-content: ;
 }
 
+.weather-icon {
+  margin-top: 12px;
+  font-size: 40px;
+}
 .temperature-value {
   font-size: 88px;
   line-height: 88px;
