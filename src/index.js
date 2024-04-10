@@ -8,15 +8,17 @@ function displayWeather(response) {
 
   let date = new Date(response.data.time * 1000);
 
+  let weatherIcon = document.querySelector("#weather-icon");
+
   displayedCity.innerHTML = response.data.city;
-  dayAndTime.innerHTML = displayDate(date);
+  dayAndTime.innerHTML = `${displayDate(date)}, `;
   weatherCondition.innerHTML = response.data.condition.description;
   humidity.innerHTML = `${response.data.temperature.humidity}%`;
   windSpeed.innerHTML = `${response.data.wind.speed}km/h`;
   temperature.innerHTML = Math.round(response.data.temperature.current);
-
-  console.log(response.data);
+  weatherIcon.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-icon"></img>`;
 }
+
 function displayDate(date) {
   let minute = date.getMinutes();
   let hour = date.getHours();

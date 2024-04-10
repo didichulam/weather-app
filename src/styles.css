@@ -62,14 +62,13 @@ form {
 }
 
 .weather-icon {
-  margin-top: 12px;
-  font-size: 40px;
+  width: 88px;
+  height: 88px;
 }
 .temperature-value {
   font-size: 88px;
   line-height: 88px;
   font-weight: bold;
-  margin-left: 10px;
 }
 
 .temperature-unit {
