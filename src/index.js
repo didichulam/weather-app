@@ -17,6 +17,8 @@ function displayWeather(response) {
   windSpeed.innerHTML = `${response.data.wind.speed}km/h`;
   temperature.innerHTML = Math.round(response.data.temperature.current);
   weatherIcon.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-icon"></img>`;
+
+  getForecast(response.data.city);
 }
 
 function displayDate(date) {
@@ -54,23 +56,31 @@ function displayCity(event) {
   let searchInputSpace = document.querySelector("#search-input-space");
   searchCity(searchInputSpace.value);
 }
+function getForecast(city) {
+  let apiKey = "fc07ae9o4bd8db7562f510t9323275bb";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios(apiUrl).then(displayForecast);
+}
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data);
+
   let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+  let forecastHtml = "";
 
   days.forEach(function (day) {
-    let forecastHtml =
+    forecastHtml =
       forecastHtml +
       `
-    <div class="weather-forecast-per-day">
-    <div class="weather-forecast-day">${day}</div>
-    <div><img src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-night.png"
-    alt="" width="42px"></div>
-    <div class="weather-forecast-temperatures">
-    <span class="weather-forecast-temperature-max">18°</span>
-    <span class="weather-forecast-temperature-min">12°</span>
-    </div>
-    </div>
+      <div class="weather-forecast-per-day">
+        <div class="weather-forecast-day">${day}</div>
+        <div><img src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-night.png"
+        alt="" width="42px"></div>
+        <div class="weather-forecast-temperatures">
+          <span class="weather-forecast-temperature-max">18°</span>
+          <span class="weather-forecast-temperature-min">12°</span>
+        </div>
+      </div>
     `;
   });
 
@@ -80,4 +90,6 @@ function displayForecast() {
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", displayCity);
-displayForecast();
+
+searchCity("Birmingham");
+getForecast("Birmingham");
