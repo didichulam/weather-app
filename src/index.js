@@ -55,5 +55,29 @@ function displayCity(event) {
   searchCity(searchInputSpace.value);
 }
 
+function displayForecast() {
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+
+  days.forEach(function (day) {
+    let forecastHtml =
+      forecastHtml +
+      `
+    <div class="weather-forecast-per-day">
+    <div class="weather-forecast-day">${day}</div>
+    <div><img src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-night.png"
+    alt="" width="42px"></div>
+    <div class="weather-forecast-temperatures">
+    <span class="weather-forecast-temperature-max">18°</span>
+    <span class="weather-forecast-temperature-min">12°</span>
+    </div>
+    </div>
+    `;
+  });
+
+  let forecast = document.querySelector("#forecast");
+  forecast.innerHTML = forecastHtml;
+}
+
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", displayCity);
+displayForecast();
