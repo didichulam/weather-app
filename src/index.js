@@ -56,6 +56,14 @@ function displayCity(event) {
   let searchInputSpace = document.querySelector("#search-input-space");
   searchCity(searchInputSpace.value);
 }
+
+function formatDay(timestamp) {
+  let day = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day.getDay()];
+}
+
 function getForecast(city) {
   let apiKey = "fc07ae9o4bd8db7562f510t9323275bb";
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
@@ -63,25 +71,27 @@ function getForecast(city) {
 }
 
 function displayForecast(response) {
-  console.log(response.data);
-
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
   let forecastHtml = "";
 
-  days.forEach(function (day) {
-    forecastHtml =
-      forecastHtml +
-      `
-      <div class="weather-forecast-per-day">
-        <div class="weather-forecast-day">${day}</div>
-        <div><img src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-night.png"
-        alt="" width="42px"></div>
-        <div class="weather-forecast-temperatures">
-          <span class="weather-forecast-temperature-max">18°</span>
-          <span class="weather-forecast-temperature-min">12°</span>
+  response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
+      forecastHtml =
+        forecastHtml +
+        `
+        <div class="weather-forecast-per-day">
+          <div class="weather-forecast-day">${formatDay(day.time)}</div>
+          <div><img src="${day.condition.icon_url}" class=weather-icon></div>
+          <div class="weather-forecast-temperatures">
+            <span class="weather-forecast-temperature-max">${Math.round(
+              day.temperature.maximum
+            )}°</span>
+            <span class="weather-forecast-temperature-min">${Math.round(
+              day.temperature.minimum
+            )}°</span>
+          </div>
         </div>
-      </div>
-    `;
+      `;
+    }
   });
 
   let forecast = document.querySelector("#forecast");
