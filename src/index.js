@@ -102,4 +102,3 @@ let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", displayCity);
 
 searchCity("Birmingham");
-getForecast("Birmingham");
